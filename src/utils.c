@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:40:48 by vicperri          #+#    #+#             */
-/*   Updated: 2024/12/12 15:12:10 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2024/12/13 11:50:16 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,23 @@ char	*dup_temp(const char *s1)
 	size_t size;
 	char *dup;
 	size_t i;
+	size_t j;
 
 	size = ft_strlen(s1) + 1;
 	dup = (char *)malloc(size * sizeof(char));
 	i = 0;
+	j = 0;
 	if (!(dup))
 		return (0);
 	while (s1[i])
 	{
 		if (s1[i] != '\n')
-			dup[i] = s1[i];
+		{
+			dup[j] = s1[i];
+			j++;
+		}
 		i++;
 	}
-	dup[i] = '\0';
+	dup[j] = '\0';
 	return (dup);
 }

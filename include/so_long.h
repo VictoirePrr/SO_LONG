@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:31:55 by vicperri          #+#    #+#             */
-/*   Updated: 2024/12/12 17:37:20 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2024/12/13 16:26:42 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@
 # define EXIT 'E'
 # define WALL '1'
 # define EMPTY '0'
+
+# define WALL_XPM "sprites/wall.xpm"
+# define FLOOR_XPM "sprites/floor.xpm"
+# define ITEM_XPM "sprites/item.xpm"
+# define CAT_LEFT_XPM "sprites/cat_left.xpm"
+# define CAT_RIGHT_XPM "sprites/cat_right.xpm"
+# define CAT_BACK_XPM "sprites/cat_back.xpm"
+# define ESC_GAME_XPM "sprites/esc.xpm"
+# define ESC_GAME_XPM "sprites/esc_final.xpm"
 
 typedef struct s_data
 {

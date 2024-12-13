@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:31:55 by vicperri          #+#    #+#             */
-/*   Updated: 2024/12/12 15:31:27 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2024/12/13 11:49:37 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ char	**fill_the_matrix(const char *file, t_matrix *matrix)
 	while ((temp = get_next_line(fd)) != NULL) // fill each rows
 	{
 		matrix->map[matrix->vtl] = dup_temp(temp); // fill without the \n
+		free(temp);
 		if (!matrix->map[matrix->vtl])
-			free_all(matrix->map);
+			return (free_all(matrix->map), close(fd), NULL);
 		matrix->vtl += 1; // go to the next row
 	}
 	free(temp);
@@ -58,6 +59,7 @@ char	**read_map(const char *file, t_matrix *matrix)
 	if (!matrix->map)
 		return (NULL);
 	matrix->map[rows] = NULL;
-	matrix->map = fill_the_matrix(file, matrix);
+	if (!fill_the_matrix(file, matrix))
+		return (free_all(matrix->map), NULL);
 	return (matrix->map);
 }

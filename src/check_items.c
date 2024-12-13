@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:31:15 by vicperri          #+#    #+#             */
-/*   Updated: 2024/12/12 17:30:45 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2024/12/13 11:53:23 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	err_items(t_matrix *matrix)
 	}
 	return (0);
 }
+
 // CHECK !! count your items to see if there is enough or too much
 int	err_items_count(t_matrix *matrix)
 {
@@ -57,6 +58,7 @@ int	err_items_count(t_matrix *matrix)
 		return (1);
 	return (0);
 }
+
 // CHECK !! regroup all your parsing honeyyyy
 int	parsing_map(t_matrix *matrix)
 {
@@ -69,9 +71,7 @@ int	parsing_map(t_matrix *matrix)
 	if (check_rectangle(matrix) == 1)
 		return (print_error(), print_mess("Map should be a rectangle !"), 1);
 	if (check_walls(matrix) == 1)
-	{
-		print_error();
-		return (print_mess("Map should be encased in walls !"), 1);
-	}
+		return (print_error(), print_mess("Map should be encased in walls !"),
+			1);
 	return (0);
 }

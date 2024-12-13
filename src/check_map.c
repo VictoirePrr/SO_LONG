@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:33:20 by vicperri          #+#    #+#             */
-/*   Updated: 2024/12/12 17:38:40 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2024/12/13 11:52:57 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	check_rectangle(t_matrix *matrix)
 		return (1);
 	return (0);
 }
+
 int	check_first_last_rows(char *row)
 {
 	int	i;
