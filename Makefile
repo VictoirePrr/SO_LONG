@@ -6,17 +6,18 @@
 #    By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 12:55:24 by vicperri          #+#    #+#              #
-#    Updated: 2024/12/13 11:37:25 by vicperri         ###   ########lyon.fr    #
+#    Updated: 2024/12/18 15:12:42 by vicperri         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    =  so_long
 
 CC := gcc
-CCFLAGS := -Wextra -Wall -Werror -g3
+CCFLAGS := -g3
 SRC_DIR := src/
 INCLUDES:= include/
-SRC := $(addprefix $(SRC_DIR), so_long.c fill_map.c check_items.c check_map.c handling_error.c utils.c)
+SRC := $(addprefix $(SRC_DIR), so_long.c fill_map.c check_items.c check_map.c handling_error.c utils.c \
+init_game.c start_game.c flood_fill.c)
 
 OBJ_DIR := .obj/
 OBJ := $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)

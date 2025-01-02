@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:31:15 by vicperri          #+#    #+#             */
-/*   Updated: 2024/12/13 11:53:23 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2024/12/20 12:32:18 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ int	err_items(t_matrix *matrix)
 // CHECK !! count your items to see if there is enough or too much
 int	err_items_count(t_matrix *matrix)
 {
-	int	counts[3];
+	int	counts[2];
 
-	counts[0] = 0; // item
-	counts[1] = 0; // player
-	counts[2] = 0; // exit
+	matrix->total_item = 0; // item
+	counts[0] = 0;          // player
+	counts[1] = 0;          // exit
 	matrix->vtl = 0;
 	while (matrix->map[matrix->vtl])
 	{
@@ -45,16 +45,16 @@ int	err_items_count(t_matrix *matrix)
 		while (matrix->map[matrix->vtl][matrix->htl])
 		{
 			if (matrix->map[matrix->vtl][matrix->htl] == ITEM)
-				counts[0]++;
+				matrix->total_item++;
 			if (matrix->map[matrix->vtl][matrix->htl] == PLAYER)
-				counts[1]++;
+				counts[0]++;
 			if (matrix->map[matrix->vtl][matrix->htl] == EXIT)
-				counts[2]++;
+				counts[1]++;
 			matrix->htl++;
 		}
 		matrix->vtl++;
 	}
-	if (counts[0] < 1 || counts[1] != 1 || counts[2] != 1)
+	if (matrix->total_item < 1 || counts[0] != 1 || counts[1] != 1)
 		return (1);
 	return (0);
 }
@@ -73,5 +73,9 @@ int	parsing_map(t_matrix *matrix)
 	if (check_walls(matrix) == 1)
 		return (print_error(), print_mess("Map should be encased in walls !"),
 			1);
+	if (check_player_access(matrix) == 1)
+		return (print_error(), print_mess("The flood fill indicates an error !"),
+			1);
+	free(matrix->map);
 	return (0);
 }

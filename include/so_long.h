@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:31:55 by vicperri          #+#    #+#             */
-/*   Updated: 2024/12/13 16:26:42 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/02 12:19:44 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "libft.h"
 # include "mlx.h"
+# include <X11/X.h>
+# include <X11/keysym.h>
 # include <fcntl.h>
 # include <stddef.h>
 # include <stdint.h>
@@ -23,6 +25,16 @@
 # include <unistd.h>
 
 # define ESC 65307
+# define UP 65362
+# define RIGHT 65363
+# define LEFT 65361
+# define DOWN 65364
+
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+
 # define PLAYER 'P'
 # define ITEM 'C'
 # define EXIT 'E'
@@ -35,53 +47,80 @@
 # define CAT_LEFT_XPM "sprites/cat_left.xpm"
 # define CAT_RIGHT_XPM "sprites/cat_right.xpm"
 # define CAT_BACK_XPM "sprites/cat_back.xpm"
-# define ESC_GAME_XPM "sprites/esc.xpm"
-# define ESC_GAME_XPM "sprites/esc_final.xpm"
+# define ESC_FINAL_XPM "sprites/esc_final.xpm"
+# define ESC_XPM "sprites/esc.xpm"
 
-typedef struct s_data
-{
-	void	*xvar;
-	void	*window;
-	int		size_x;
-	int		size_y;
-}			t_data;
-
-typedef struct s_matrix
-{
-	char	**map;
-	size_t	htl;
-	size_t	vtl;
-}			t_matrix;
+# define XPM_HEIGHT 64
+# define XPM_WIDTH 64
 
 typedef struct s_img
 {
-	void	*image;
-	char	*addr;
-	int		width;
-	int		height;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}			t_img;
+	void		*image;
+	int			width;
+	int			height;
+
+}				t_img;
+
+typedef struct s_matrix
+{
+	char		**map;
+	int			total_item;
+	size_t		htl;
+	size_t		vtl;
+}				t_matrix;
+
+typedef struct s_data
+{
+	void		*xvar;
+	void		*window;
+	int			size_x;
+	int			size_y;
+	int			item_count;
+	int			player_moves;
+	t_matrix	matrix;
+	t_img		wall;
+	t_img		floor;
+	t_img		item;
+	t_img		cat_left;
+	t_img		cat_right;
+	t_img		cat_back;
+	t_img		esc_final;
+	t_img		esc;
+
+}				t_data;
 
 // so_long.c
-int			main(void);
+int				main(void);
 
 // utils
-int			free_all(char **matrix);
-char		*dup_temp(const char *s1);
+int				free_all(char **matrix);
+char			*dup_temp(const char *s1);
+void			handling_close(t_data *data, t_img *img);
+int				handling_key(int key);
 
 // handling_error
-void		print_error(void);
-void		print_mess(char *message);
+void			print_error(void);
+void			print_mess(char *message);
 
 // fill_map
-char		**read_map(const char *file, t_matrix *matrix);
+char			**read_map(const char *file, t_matrix *matrix);
 
 // check_items
-int			parsing_map(t_matrix *matrix);
+int				parsing_map(t_matrix *matrix);
 
 // check_map
-int			check_rectangle(t_matrix *matrix);
-int			check_walls(t_matrix *matrix);
+int				check_rectangle(t_matrix *matrix);
+int				check_walls(t_matrix *matrix);
+
+// flood_fill
+int				check_player_access(t_matrix *matrix);
+
+// init_game
+void			initialize_window(t_data *data, t_matrix *matrix);
+void			initialize_img(t_data *data, t_img *img);
+
+// start_game
+void			start_game(t_data *data);
+void			play_game(t_data *data);
+
 #endif
