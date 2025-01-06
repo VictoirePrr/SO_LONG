@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:12:05 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/02 11:44:46 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/06 13:32:41 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	start_game(t_data *data)
 	play_game(data); // Call once after initializing the map
 }
 
-void	handle_exit(t_data *data, int new_x, int new_y)
+int	handle_exit(t_data *data, int new_x, int new_y)
 {
 	if (data->matrix.total_item == 0)
 	{
@@ -65,10 +65,8 @@ void	handle_exit(t_data *data, int new_x, int new_y)
 		ft_printf("Kitty has successfully escaped! You win <3\n"); // End game
 	}
 	else
-	{
-		ft_printf("Oh nooo, kitty is still hungry! Looser.\n");
-		handling_close(&data, &data);
-	}
+		ft_printf("Oh nooo, kitty is still hungry! Looser :(\n");
+	return (1);
 }
 
 int	move_player(t_data *data, int new_x, int new_y, t_img player_img)
@@ -122,7 +120,7 @@ int	get_key(int key, void *param)
 	else if (key == RIGHT || key == D)
 		decide_path(data, new_x, new_y + 1, data->cat_right);
 	else if (key == ESC)
-		handling_close(&data, &data);
+		handling_close(data);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:31:55 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/02 12:19:44 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/06 14:49:17 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,17 +90,17 @@ typedef struct s_data
 }				t_data;
 
 // so_long.c
-int				main(void);
+int				main(int argc, char **argv);
+int				check_argv(char *argv);
 
 // utils
 int				free_all(char **matrix);
 char			*dup_temp(const char *s1);
-void			handling_close(t_data *data, t_img *img);
+void			handling_close(t_data *data);
 int				handling_key(int key);
 
 // handling_error
 void			print_error(void);
-void			print_mess(char *message);
 
 // fill_map
 char			**read_map(const char *file, t_matrix *matrix);

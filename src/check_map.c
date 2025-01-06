@@ -6,13 +6,12 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:33:20 by vicperri          #+#    #+#             */
-/*   Updated: 2024/12/18 15:10:22 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/06 14:49:20 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// CHECK !! check if the map is indeed a rectangle
 int	check_rectangle(t_matrix *matrix)
 {
 	matrix->vtl = 0;
@@ -42,12 +41,11 @@ int	check_first_last_rows(char *row)
 	return (0);
 }
 
-// CHECK !! check if the map is enclosed in walls
 int	check_walls(t_matrix *matrix)
 {
 	matrix->vtl = 0;
 	matrix->htl = ft_strlen(matrix->map[matrix->vtl]);
-	if (check_first_last_rows(matrix->map[0]) == 1) // check first row
+	if (check_first_last_rows(matrix->map[0]) == 1)
 		return (1);
 	while (matrix->map[matrix->vtl])
 	{
@@ -58,7 +56,6 @@ int	check_walls(t_matrix *matrix)
 		matrix->vtl++;
 	}
 	if (check_first_last_rows(matrix->map[matrix->vtl - 1]) == 1)
-		// check last row
 		return (1);
 	return (0);
 }
