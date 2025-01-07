@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:31:55 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/07 10:58:54 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/07 11:10:39 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,12 @@ int				check_argv(char *argv);
 // utils
 void			free_all(char **matrix);
 void			print_error(void);
+char			*dup_temp(const char *s1);
 
 // closing_utils.c
-void			handling_close(t_data *data);
+int				handling_close(t_data *data);
 int				handling_key(int key);
+void			free_sprites(t_data *data);
 
 // fill_map
 char			**read_map(const char *file, t_matrix *matrix);
@@ -113,6 +115,7 @@ int				check_walls(t_matrix *matrix);
 
 // flood_fill
 int				check_player_access(t_matrix *matrix);
+int				final_check(t_matrix *matrix);
 
 // init_game
 void			initialize_window(t_data *data, t_matrix *matrix);

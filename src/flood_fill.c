@@ -6,15 +6,15 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:11:20 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/07 09:46:41 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/07 11:10:11 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	flood_fill(t_matrix *matrix, int x, int y)
+void	flood_fill(t_matrix *matrix, size_t x, size_t y)
 {
-	if (x < 0 || x >= matrix->vtl || y < 0 || y >= matrix->htl)
+	if (x >= matrix->vtl || y >= matrix->htl)
 		return ;
 	if (matrix->map[x][y] == WALL || matrix->map[x][y] == 'X')
 		return ;
@@ -27,8 +27,8 @@ void	flood_fill(t_matrix *matrix, int x, int y)
 
 int	check_player_access(t_matrix *matrix)
 {
-	int	x;
-	int	y;
+	size_t	x;
+	size_t	y;
 
 	x = 0;
 	while (x < matrix->vtl)
@@ -49,8 +49,8 @@ int	check_player_access(t_matrix *matrix)
 }
 int	final_check(t_matrix *matrix)
 {
-	int	x;
-	int	y;
+	size_t	x;
+	size_t	y;
 
 	x = 0;
 	while (x < matrix->vtl)

@@ -6,13 +6,13 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:40:48 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/07 10:13:59 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/07 11:06:26 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	handling_close(t_data *data)
+int	handling_close(t_data *data)
 {
 	if (data)
 	{
@@ -26,7 +26,6 @@ void	handling_close(t_data *data)
 			mlx_destroy_display(data->xvar);
 			free(data->xvar);
 		}
-		// free(data);
 	}
 	ft_printf("Game is closed, see u ! <3\n");
 	exit(0);
