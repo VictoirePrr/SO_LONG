@@ -6,7 +6,7 @@
 #    By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 12:55:24 by vicperri          #+#    #+#              #
-#    Updated: 2024/12/18 15:12:42 by vicperri         ###   ########lyon.fr    #
+#    Updated: 2025/01/07 10:59:21 by vicperri         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC := gcc
 CCFLAGS := -g3
 SRC_DIR := src/
 INCLUDES:= include/
-SRC := $(addprefix $(SRC_DIR), so_long.c fill_map.c check_items.c check_map.c handling_error.c utils.c \
+SRC := $(addprefix $(SRC_DIR), so_long.c fill_map.c check_items.c check_map.c closing_utils.c utils.c \
 init_game.c start_game.c flood_fill.c)
 
 OBJ_DIR := .obj/

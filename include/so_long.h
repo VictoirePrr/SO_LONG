@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:31:55 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/06 14:49:17 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/07 10:58:54 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,12 @@ int				main(int argc, char **argv);
 int				check_argv(char *argv);
 
 // utils
-int				free_all(char **matrix);
-char			*dup_temp(const char *s1);
+void			free_all(char **matrix);
+void			print_error(void);
+
+// closing_utils.c
 void			handling_close(t_data *data);
 int				handling_key(int key);
-
-// handling_error
-void			print_error(void);
 
 // fill_map
 char			**read_map(const char *file, t_matrix *matrix);

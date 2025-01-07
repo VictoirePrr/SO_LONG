@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:11:20 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/02 09:54:19 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/07 09:46:41 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void	flood_fill(t_matrix *matrix, int x, int y)
 {
-	// Ensure x and y are within bounds of the map
 	if (x < 0 || x >= matrix->vtl || y < 0 || y >= matrix->htl)
 		return ;
-	// Stop if the cell is a wall or already visited
 	if (matrix->map[x][y] == WALL || matrix->map[x][y] == 'X')
 		return ;
 	matrix->map[x][y] = 'X';

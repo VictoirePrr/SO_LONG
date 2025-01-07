@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:12:05 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/06 13:32:41 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/07 09:47:16 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	start_game(t_data *data)
 		}
 		vtl++;
 	}
-	play_game(data); // Call once after initializing the map
+	play_game(data);
 }
 
 int	handle_exit(t_data *data, int new_x, int new_y)
@@ -62,7 +62,7 @@ int	handle_exit(t_data *data, int new_x, int new_y)
 		put_img_to_window(data, data->floor, data->size_x, data->size_y);
 		data->matrix.map[data->size_x][data->size_y] = EMPTY;
 		put_img_to_window(data, data->esc_final, new_x, new_y);
-		ft_printf("Kitty has successfully escaped! You win <3\n"); // End game
+		ft_printf("Kitty has successfully escaped! You win <3\n");
 	}
 	else
 		ft_printf("Oh nooo, kitty is still hungry! Looser :(\n");
@@ -77,7 +77,7 @@ int	move_player(t_data *data, int new_x, int new_y, t_img player_img)
 	{
 		put_img_to_window(data, data->floor, data->size_x, data->size_y);
 		if (data->matrix.map[new_x][new_y] == ITEM)
-			data->matrix.total_item--; // Decrease item count on collection
+			data->matrix.total_item--;
 		data->matrix.map[data->size_x][data->size_y] = EMPTY;
 		data->matrix.map[new_x][new_y] = PLAYER;
 		data->size_x = new_x;
@@ -108,7 +108,7 @@ int	get_key(int key, void *param)
 	if (key == UP || key == W || key == DOWN || key == S || key == LEFT
 		|| key == A || key == RIGHT || key == D)
 	{
-		printf("You've done %d moves\n", data->player_moves);
+		ft_printf("You've done %d moves\n", data->player_moves);
 		data->player_moves++;
 	}
 	if (key == UP || key == W)

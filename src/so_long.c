@@ -6,11 +6,11 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 10:38:39 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/06 14:49:11 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/07 10:56:49 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-// See "documentation.md" for more details on the so_long algorithm.
+// See "README.md" for more details on the so_long algorithm.
 
 #include "so_long.h"
 
