@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:11:20 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/07 11:10:11 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/08 10:43:53 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	check_player_access(t_matrix *matrix)
 	}
 	return (final_check(matrix));
 }
+
 int	final_check(t_matrix *matrix)
 {
 	size_t	x;

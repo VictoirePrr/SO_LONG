@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:31:55 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/07 11:10:39 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/08 10:49:34 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <fcntl.h>
-# include <stddef.h>
 # include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -96,11 +95,14 @@ int				check_argv(char *argv);
 // utils
 void			free_all(char **matrix);
 void			print_error(void);
+void			handle_img(t_data *data, int vtl, int htl);
+void			put_img_to_window(t_data *data, t_img img, int vtl, int htl);
 char			*dup_temp(const char *s1);
 
 // closing_utils.c
 int				handling_close(t_data *data);
 int				handling_key(int key);
+int				get_key(int key, void *param);
 void			free_sprites(t_data *data);
 
 // fill_map
@@ -124,5 +126,7 @@ void			initialize_img(t_data *data, t_img *img);
 // start_game
 void			start_game(t_data *data);
 void			play_game(t_data *data);
+void			decide_path(t_data *data, int new_x, int new_y,
+					t_img player_img);
 
 #endif
