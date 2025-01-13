@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:31:15 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/06 14:49:14 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/13 16:59:08 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,17 @@ int	parsing_map(t_matrix *matrix)
 {
 	if (err_items(matrix) == 1)
 		return (print_error(),
-			ft_printf("Map contains items that are not handled !"), 1);
+			ft_printf("Map contains items that are not handled !\n"), 1);
 	if (err_items_count(matrix) == 1)
 		return (print_error(),
-			ft_printf("Map contains not enough or too much items !"), 1);
+			ft_printf("Map contains not enough or too much items !\n"), 1);
 	if (check_rectangle(matrix) == 1)
-		return (print_error(), ft_printf("Map should be a rectangle !"), 1);
+		return (print_error(), ft_printf("Map should be a rectangle !\n"), 1);
 	if (check_walls(matrix) == 1)
-		return (print_error(), ft_printf("Map should be encased in walls !"),
+		return (print_error(), ft_printf("Map should be encased in walls !\n"),
 			1);
 	if (check_player_access(matrix) == 1)
-		return (print_error(), ft_printf("The flood fill indicates an error !"),
+		return (print_error(), ft_printf("The flood fill indicates an error !\n"),
 			1);
 	free_all(matrix->map);
 	return (0);

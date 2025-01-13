@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 10:38:39 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/08 10:56:43 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/13 16:45:49 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,16 @@ int	main(int argc, char **argv)
 		return (print_error(), ft_printf("I need a map dummy...\n"), 0);
 	data.matrix.map = read_map(argv[1], &data.matrix);
 	if (!data.matrix.map)
-		return (print_error(), ft_printf("I need a map dummy...\n"), 0);
+		return (print_error(), ft_printf("I need a map dummy...\n"),
+			free_all(data.matrix.map), 0);
 	if (parsing_map(&data.matrix) == 1)
-		return (print_error(), ft_printf("Ur map is not good honey.\n"), 0);
+		return (print_error(), ft_printf("Ur map is not good honey.\n"),
+			free_all(data.matrix.map), 0);
 	data.matrix.map = read_map(argv[1], &data.matrix);
 	initialize_window(&data, &data.matrix);
-	initialize_img(&data, &img);
+	img_to_null(&data);
+	initialize_img_part_one(&data, &img);
+	initialize_img_part_two(&data, &img);
 	start_game(&data);
 	play_game(&data);
 	mlx_hook(data.window, 17, 0, handling_close, &data);

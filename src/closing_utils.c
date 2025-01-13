@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:40:48 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/08 10:46:45 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/13 16:58:26 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,6 @@ int	get_key(int key, void *param)
 	data = (t_data *)param;
 	new_x = data->size_x;
 	new_y = data->size_y;
-	if (key == UP || key == W || key == DOWN || key == S || key == LEFT
-		|| key == A || key == RIGHT || key == D)
-	{
-		ft_printf("You've done %d moves\n", data->player_moves);
-		data->player_moves++;
-	}
 	if (key == UP || key == W)
 		decide_path(data, new_x - 1, new_y, data->cat_back);
 	else if (key == DOWN || key == S)
