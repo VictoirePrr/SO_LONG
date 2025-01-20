@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:31:55 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/08 10:49:34 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 11:17:32 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,9 @@ int				final_check(t_matrix *matrix);
 
 // init_game
 void			initialize_window(t_data *data, t_matrix *matrix);
-void			initialize_img(t_data *data, t_img *img);
+void			img_to_null(t_data *data);
+void			initialize_img_part_one(t_data *data, t_img *img);
+void			initialize_img_part_two(t_data *data, t_img *img);
 
 // start_game
 void			start_game(t_data *data);

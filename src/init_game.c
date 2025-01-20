@@ -6,7 +6,7 @@
 /*   By: vicperri <vicperri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:31:35 by vicperri          #+#    #+#             */
-/*   Updated: 2025/01/13 11:09:13 by vicperri         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 11:17:09 by vicperri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_img	put_xpm_to_data(void *xvar, char *xpm, t_img *img)
 void	img_to_null(t_data *data)
 {
 	data->wall.image = NULL;
-	data->floor.image = 0;
+	data->floor.image = NULL;
 	data->item.image = NULL;
 	data->cat_left.image = NULL;
 	data->cat_right.image = NULL;
