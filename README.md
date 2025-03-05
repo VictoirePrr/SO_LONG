@@ -27,7 +27,7 @@ The **So_Long** project is a simple 2D game developed as part of my 42 School cu
 1. **Start the game**:
     In the terminal, run the game with the command:
     ```bash
-    ./so_long map_file.ber
+    ./so_long map.ber
     ```
     The `map.ber` is a `.ber` file that contains the layout of your game world.
 
