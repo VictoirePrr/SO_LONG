@@ -29,7 +29,7 @@ The **So_Long** project is a simple 2D game developed as part of my 42 School cu
     ```bash
     ./so_long map_file.ber
     ```
-    The `map_file.ber` is a `.ber` file that contains the layout of your game world.
+    The `map.ber` is a `.ber` file that contains the layout of your game world.
 
 2. **Game Controls**:
     - **W**: Move up
