@@ -1,7 +1,7 @@
 # So_Long Project 🐱‍💻
 
 ## About
-The **So_Long** project is a simple 2D game developed as part of my 42 School curriculum. It revolves around a small cat navigating through a map, collecting strawberries before reaching the little box to hide. 📦
+The **So_Long** project is a simple 2D game developed as part of my 42 School curriculum. It revolves around a small cat navigating through a map, collecting strawberries before reaching the little box to hide. 🍓📦
 
 ## Requirements
 - **Graphics Library**: MinilibX
